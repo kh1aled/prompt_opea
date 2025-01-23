@@ -8,9 +8,12 @@ export const GET = async (request , {params}) => {
   
     await connectToDB();
 
+    const { id } = await params;
+
+
 
     const prompts = await Prompt.find({
-        creator : params.id
+        creator : id
     }).populate("creator");
 
 
